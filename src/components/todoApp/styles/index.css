@@ -1,0 +1,357 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+/* variables */
+:root {
+  --color-violet: #884cb2;
+  --color-pink: #f3477a;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+body {
+  background: #f3f4f6;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: white;
+  background: var(--color-violet);
+}
+
+.header h1 {
+  cursor: pointer;
+}
+
+/* #region Containers*/
+.container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.container__title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: center;
+  column-gap: 1rem;
+}
+
+.container__todos {
+  margin-top: 0.5rem;
+}
+
+.todosPending {
+  /* min-height: 200px; */
+  max-height: 200px;
+  overflow: auto;
+}
+
+.todosCompleted {
+  max-height: 200px;
+  /* min-height: 200px; */
+  overflow: auto;
+}
+
+.containerForm {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* #endregion Containers*/
+
+/* #region Title*/
+.container__title h1 {
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 2.25rem;
+  line-height: 3.375rem;
+}
+
+.taskNumber {
+  color: var(--color-pink);
+}
+
+/* #endregion Title*/
+
+/* #region Buttons */
+.button {
+  cursor: pointer;
+  min-width: 139px;
+  border: none;
+  outline: none;
+  height: 34px;
+
+  background: var(--color-violet);
+  color: white;
+  border-radius: 10px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.buttonDisabled {
+  cursor: not-allowed;
+  background: #e6e6e6;
+  color: #b3b3b3;
+}
+
+.buttonAdd {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  column-gap: 10px;
+}
+
+.buttonCancel {
+  margin-top: 0.5rem;
+}
+
+.todoButtons {
+  margin-left: 0.5rem;
+  display: flex;
+  justify-content: space-around;
+  column-gap: 0.5rem;
+}
+
+.buttonEdit {
+  /* min-width: 1rem;
+  max-width: max-content; */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  column-gap: 10px;
+  height: 34px;
+}
+
+.buttonEdit img {
+  width: 1rem;
+}
+
+.buttonDelete {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  column-gap: 10px;
+  background-color: red;
+}
+
+.buttonDelete img {
+  width: 1rem;
+}
+
+/* #endregion Buttons */
+
+/* #region Form */
+.form {
+  position: absolute;
+  top: 25%;
+  left: 0;
+  right: 0;
+  min-width: 300px;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 1rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+}
+
+.closeForm {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  color: var(--color-pink);
+  text-decoration: underline;
+}
+
+.form__title {
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--color-violet);
+}
+
+.formInput {
+  padding: 0.5rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.5rem;
+  width: 100%;
+  margin-bottom: 0.5rem;
+  outline: none;
+  text-align: center;
+}
+
+.formInput:focus {
+  border: 1px solid var(--color-violet);
+}
+
+.formInputDescription {
+  text-align: justify;
+  min-height: 38px;
+  height: max-content;
+  max-height: 150px;
+  resize: vertical;
+}
+
+.formInputDescription::placeholder {
+  text-align: center;
+}
+
+.priorityLow {
+  color: royalblue;
+}
+
+.priorityMedium {
+  color: orange;
+}
+
+.priorityHigh {
+  color: red;
+}
+
+.statusCompleted {
+  color: green;
+}
+
+.statusPending {
+  color: red;
+}
+
+.statusInProgress {
+  color: royalblue;
+}
+
+/* #endregion Form */
+
+/* #region Todo */
+
+.sectionTitle {
+  display: inline-block;
+  cursor: pointer;
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.rotate {
+  transform: rotate(0deg) !important;
+}
+
+.sectionTitle img {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 0.5rem;
+  transform: rotate(270deg);
+}
+
+.todos {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.todosEmpty {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: #b3b3b3;
+}
+
+.todoItem {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.clickTodo {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.todoContent {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  align-items: center;
+}
+
+.tags {
+  display: flex;
+}
+
+.todoCheckBox {
+  cursor: pointer;
+  margin-right: 0.5rem;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+  outline: none;
+  border: 2px solid var(--color-violet);
+}
+
+.todoCheckBoxCompleted {
+  background: var(--color-violet);
+}
+
+.todoTitle {
+  min-width: 150px;
+  color: var(--color-violet);
+  margin-right: 0.5rem;
+}
+
+.todoDescription {
+  min-width: 200px;
+  max-width: 300px;
+  margin-right: 0.5rem;
+}
+
+.todoStatus,
+.todoPriority {
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
+  width: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  margin-right: 0.5rem;
+}
+
+/* endregion Todo */
