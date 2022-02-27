@@ -1,8 +1,5 @@
 import React, { useContext, useRef } from "react";
 import { todoContext } from "../Context/todoContext";
-// Icons
-import iconDelete from "../svg/icon-delete.svg";
-import iconEdit from "../svg/icon-edit.svg";
 
 export const TodoItem = ({ todo, setIsVisible }) => {
   const {
@@ -43,11 +40,9 @@ export const TodoItem = ({ todo, setIsVisible }) => {
           toggleTodo(todo.id);
         }}
       >
-        <div
-          className={`todoCheckBox ${
-            todo.completed && "todoCheckBoxCompleted"
-          }`}
-        ></div>
+        <span className="material-icons-round todoCheckBox">
+          {!todo.completed ? "radio_button_unchecked" : "task_alt"}
+        </span>
         <h3 className={"todoTitle"}>{todo.title}</h3>
       </div>
       <div className={"todoContent"}>
@@ -77,7 +72,7 @@ export const TodoItem = ({ todo, setIsVisible }) => {
               updateTodo(todo);
             }}
           >
-            <img src={iconEdit} alt={"icon"} /> Edit
+            <span className="material-icons-round">edit_note</span> Edit
           </button>
           <button
             className={"button buttonDelete"}
@@ -85,7 +80,7 @@ export const TodoItem = ({ todo, setIsVisible }) => {
               deleteTodo(todo.id);
             }}
           >
-            <img src={iconDelete} alt={"icon"} /> Remove
+            <span className="material-icons-round">delete_outline</span> Remove
           </button>
         </div>
       </div>

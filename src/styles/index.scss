@@ -2,7 +2,7 @@
 
 /* variables */
 :root {
-  --color-violet: #884cb2;
+  --color-violet: #000000;
   --color-pink: #f3477a;
 }
 
@@ -25,6 +25,23 @@ body {
   padding: 1rem;
   color: white;
   background: var(--color-violet);
+
+  .header__time{
+    // font-size: .5rem;
+    display: flex;
+    flex-direction: column;
+    margin-right: 1rem;
+
+    .header__time-date, .header__time--hour {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+    }
+  }
+}
+
+.date, .hour {
+  font-size: 1.2rem;
 }
 
 .header h1 {
@@ -102,7 +119,7 @@ body {
   min-width: 139px;
   border: none;
   outline: none;
-  height: 34px;
+  min-height: 34px;
 
   background: var(--color-violet);
   color: white;
@@ -122,6 +139,10 @@ body {
   align-content: center;
   justify-content: center;
   column-gap: 10px;
+
+  .iconAdd {
+    font-size: 18px;
+  }
 }
 
 .buttonCancel {
@@ -190,14 +211,13 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0.5rem;
-  margin-right: 0.5rem;
   cursor: pointer;
   color: var(--color-pink);
-  text-decoration: underline;
+  font-size: 32px;
 }
 
 .form__title {
+  position: relative;
   text-align: center;
   margin-bottom: 0.5rem;
   color: var(--color-violet);
@@ -318,16 +338,8 @@ body {
 
 .todoCheckBox {
   cursor: pointer;
+  color: var(--color-violet);
   margin-right: 0.5rem;
-  border-radius: 50%;
-  width: 1rem;
-  height: 1rem;
-  outline: none;
-  border: 2px solid var(--color-violet);
-}
-
-.todoCheckBoxCompleted {
-  background: var(--color-violet);
 }
 
 .todoTitle {

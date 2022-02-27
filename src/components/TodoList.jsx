@@ -37,7 +37,7 @@ export const TodoList = ({ setIsVisible }) => {
             setIsVisible(true);
           }}
         >
-          <img src={iconAdd} alt="add" />
+          <span className="material-icons-round iconAdd">add_task</span>
           Add New
         </button>
       </div>
@@ -48,11 +48,9 @@ export const TodoList = ({ setIsVisible }) => {
             setShowPending(!showPending);
           }}
         >
-          <img
-            src={arrow}
-            alt="arrow"
-            className={showPending ? "rotate" : ""}
-          />
+          <span className="material-icons-round">
+            {showPending ? "expand_more" : "chevron_right"}
+          </span>
           On Hold
         </h3>
         {showPending && (
@@ -80,11 +78,9 @@ export const TodoList = ({ setIsVisible }) => {
             setShowCompleted(!showCompleted);
           }}
         >
-          <img
-            src={arrow}
-            alt="arrow"
-            className={showCompleted ? "rotate" : ""}
-          />{" "}
+          <span className="material-icons-round">
+            {showCompleted ? "expand_more" : "chevron_right"}
+          </span>
           Completed
         </h3>
         {showCompleted && (

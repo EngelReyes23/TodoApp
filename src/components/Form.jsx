@@ -95,10 +95,13 @@ export const Form = ({ setIsVisible }) => {
         className={"animate__animated animate__flipInX form"}
         onSubmit={handleSubmit}
       >
-        <h2 className={"form__title"}>{isEdit ? "Update TODO" : "New TODO"}</h2>
-        <span className={"closeForm"} onClick={handleClose}>
-          Close
-        </span>
+        <h2 className={"form__title"}>
+          {isEdit ? "Update TODO" : "New TODO"}
+
+          <span className="material-icons-round closeForm" onClick={handleClose}>
+            highlight_off
+          </span>
+        </h2>
         <input
           ref={titleRef}
           name={"title"}
@@ -161,14 +164,18 @@ export const Form = ({ setIsVisible }) => {
           className={`button buttonAdd ${!isValid && "buttonDisabled"}`}
           type="submit"
         >
+          <span className="material-icons">
+            {isEdit ? "update" : "control_point"}
+          </span>
           {isEdit ? "Update" : "Add"}
         </button>
         {isEdit && (
           <button
-            className={"button buttonCancel"}
+            className={"button buttonCancel buttonAdd"}
             type="button"
             onClick={handleClose}
           >
+            <span className="material-icons">not_interested</span>
             Cancel
           </button>
         )}
