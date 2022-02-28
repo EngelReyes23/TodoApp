@@ -1,26 +1,17 @@
-import React, { useContext, useRef } from "react";
+import React, { useContext, useRef, useState } from "react";
 import { todoContext } from "../Context/todoContext";
 
-export const TodoItem = ({ todo, setIsVisible }) => {
+export const TodoItem = ({ todo, setIsVisible, setShowAlertDelete }) => {
   const {
     toggleTodo,
-    removeTodo,
     setTodo,
     setIsEdit,
     colors,
     backgroundColors,
+    setTodoId,
   } = useContext(todoContext);
 
   const liRef = useRef(null);
-
-  const deleteTodo = (todoId) => {
-    if (window.confirm("Are you sure you want to delete this task?")) {
-      liRef.current.classList.add("animate__slideOutLeft");
-      setTimeout(() => {
-        removeTodo(todoId);
-      }, 500);
-    }
-  };
 
   const updateTodo = (argTodo) => {
     setTodo({ ...argTodo });
@@ -29,11 +20,7 @@ export const TodoItem = ({ todo, setIsVisible }) => {
   };
 
   return (
-    <li
-      ref={liRef}
-      draggable="true"
-      className={"animate__animated animate__fadeInLeft todoItem"}
-    >
+    <li ref={liRef} draggable="true" className={" todoItem"}>
       <div
         className={"clickTodo"}
         onClick={() => {
@@ -77,7 +64,8 @@ export const TodoItem = ({ todo, setIsVisible }) => {
           <button
             className={"button buttonDelete"}
             onClick={() => {
-              deleteTodo(todo.id);
+              setTodoId(todo.id);
+              setShowAlertDelete(true);
             }}
           >
             <span className="material-icons-round">delete_outline</span> Remove

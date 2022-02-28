@@ -6,7 +6,7 @@ import { TodoItem } from "./TodoItem";
 import arrow from "./../svg/arrow.svg";
 import iconAdd from "./../svg/icon-add.svg";
 
-export const TodoList = ({ setIsVisible }) => {
+export const TodoList = ({ setIsVisible, setShowAlertDelete }) => {
   const {
     todoState: { todos },
   } = useContext(todoContext);
@@ -48,8 +48,10 @@ export const TodoList = ({ setIsVisible }) => {
             setShowPending(!showPending);
           }}
         >
-          <span className="material-icons-round">
-            {showPending ? "expand_more" : "chevron_right"}
+          <span
+            className={`material-icons-round icon ${showPending && "rotate"}`}
+          >
+            chevron_right
           </span>
           On Hold
         </h3>
@@ -62,13 +64,12 @@ export const TodoList = ({ setIsVisible }) => {
                     key={todo.id}
                     todo={todo}
                     setIsVisible={setIsVisible}
+                    setShowAlertDelete={setShowAlertDelete}
                   />
                 ))}
               </ul>
             ) : (
-              <p className={"animate__animated animate__fadeIn todosEmpty"}>
-                You have no task on hold
-              </p>
+              <p className={"todosEmpty"}>You have no task on hold</p>
             )}
           </div>
         )}
@@ -78,8 +79,10 @@ export const TodoList = ({ setIsVisible }) => {
             setShowCompleted(!showCompleted);
           }}
         >
-          <span className="material-icons-round">
-            {showCompleted ? "expand_more" : "chevron_right"}
+          <span
+            className={`material-icons-round icon ${showCompleted && "rotate"}`}
+          >
+            chevron_right
           </span>
           Completed
         </h3>
@@ -97,13 +100,12 @@ export const TodoList = ({ setIsVisible }) => {
                       key={todo.id}
                       todo={todo}
                       setIsVisible={setIsVisible}
+                      setShowAlertDelete={setShowAlertDelete}
                     />
                   ))}
               </ul>
             ) : (
-              <p className={"animate__animated animate__fadeIn todosEmpty"}>
-                You have no task completed
-              </p>
+              <p className={"todosEmpty"}>You have no task completed</p>
             )}
           </div>
         )}

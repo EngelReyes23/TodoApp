@@ -52,14 +52,14 @@ export const Form = ({ setIsVisible }) => {
     formRef.current.classList.add("animate__flipOutX");
 
     // INFO: Dando un tiempo para que la animación termine
-    setTimeout(() => {
-      reset();
+    // setTimeout(() => {
+    reset();
 
-      // INFO: Dando un tiempo para que se ejecute el cambio de estado
-      setTimeout(() => {
-        setIsVisible(false);
-      }, 100);
-    }, 700);
+    // INFO: Dando un tiempo para que se ejecute el cambio de estado
+    // setTimeout(() => {
+    setIsVisible(false);
+    // }, 100);
+    // }, 700);
   };
 
   const handleChange = ({ target: { name, value } }) => {
@@ -90,15 +90,14 @@ export const Form = ({ setIsVisible }) => {
 
   return (
     <div className="containerForm" onClick={handleClose}>
-      <form
-        ref={formRef}
-        className={"animate__animated animate__flipInX form"}
-        onSubmit={handleSubmit}
-      >
+      <form ref={formRef} className={" form"} onSubmit={handleSubmit}>
         <h2 className={"form__title"}>
           {isEdit ? "Update TODO" : "New TODO"}
 
-          <span className="material-icons-round closeForm" onClick={handleClose}>
+          <span
+            className="material-icons-round closeForm"
+            onClick={handleClose}
+          >
             highlight_off
           </span>
         </h2>

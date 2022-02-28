@@ -43,6 +43,7 @@ export const TodoState = ({ children }) => {
   //#region STATES
   // centinela para saber si se cambia a modo edición
   const [isEdit, setIsEdit] = useState(false);
+  const [todoId, setTodoId] = useState("");
 
   // estado con la estructura del TODO
   const [todo, setTodo] = useState({
@@ -131,6 +132,8 @@ export const TodoState = ({ children }) => {
         setTodo,
         todo,
         todoState,
+        todoId,
+        setTodoId,
 
         // Funciones
         addTodo,
